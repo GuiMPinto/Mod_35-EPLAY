@@ -1,4 +1,4 @@
-# Mod 35 aula 1
+# Mod 35 aula 1 - Faça as configurações iniciais -
 
 Instalar o NPM.
 
@@ -33,3 +33,15 @@ Fazeremos a alteração no arquivo App.tsx e deletar os documentos que não
 serão mais usados. Deletamos: App.css, App.test.tsx, index.css e logo.svg.
 
 Dentro de index.tsx removermos a referência de index.css.
+
+
+# Mod 35 aula 2 - Construa o cabeçalho -
+
+Criaremos a pasta src/assets onde estarão as imagens que serão usadas na
+aplicação.
+
+O cabeçalho é um componente e os componentes na aplicação são colocados
+na pasta src/components/. No caso do cabeçalho; src/components/Header/index.tsx
+
+Também será criado um documento de estilo CSS usando o STYLED COMPONENT para
+o componente Header, src/components/Header/styles.ts
