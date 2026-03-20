@@ -45,3 +45,20 @@ na pasta src/components/. No caso do cabeçalho; src/components/Header/index.tsx
 
 Também será criado um documento de estilo CSS usando o STYLED COMPONENT para
 o componente Header, src/components/Header/styles.ts
+
+No documento App.tsx de faz uma chamada para o componente Header
+
+
+# Mod 35 aula 3 - Cria o Banner -
+
+O Banner deste projeto é uma imagem, dentro dela de varios elementos.
+Esta imagem será tratada com background-image
+
+O Banner é um componente e os componentes na aplicação são colocados
+na pasta src/components/. No caso do Banner; src/components/Banner/index.tsx
+
+Também será criado um documento de estilo CSS usando o STYLED COMPONENT para
+o componente Header, src/components/Banner/styles.ts
+
+No documento App.tsx de faz uma chamada para o componente Banner.
+
