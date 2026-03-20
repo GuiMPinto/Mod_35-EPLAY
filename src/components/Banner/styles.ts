@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
-//import { TagContainer } from '../Tag/styles'
+// importa um elemento STYLED COMPONENT do componente TAG
+import { TagContainer } from '../Tag/styles'
 
 /*  display: block; // Evita o comportamento padrão 'inline'
                     // da imagem background-size: cover;
@@ -11,6 +12,8 @@ import styled from 'styled-components'
 
     background-size: cover; // Faz com que a imagem ocupe a
                     // imagem ocupa a largura total da tela
+
+    ${TagContainer} // ${elemento JSX}
 */
 export const Imagem = styled.div`
   width: 100%;
@@ -18,7 +21,20 @@ export const Imagem = styled.div`
   display: block;
   background-repeat: no-repeat;
   background-size: cover;
-  padding-top: 340px;
+  font-weight: bold;
+
+  .container {
+    position: relative;
+    padding-top: 340px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+
+  ${TagContainer} {
+    position: absolute;
+    top: 32px;
+  }
 `
 export const Titulo = styled.h2`
   font-size: 36px;

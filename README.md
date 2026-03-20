@@ -1,5 +1,14 @@
 # Mod 35 aula 1 - Faça as configurações iniciais -
 
+O porjeto baixado já tem o Eslint e Prettier configurados
+Lembrando:
+
+Eslint : Mostra os códigos que não estão no padrão identação
+         configurado no .editorcongif .
+
+Prettier : Altera automaticamente as salvar o documento as
+           configurações determinada no .editorconfig .
+
 Instalar o NPM.
 
 npm i
@@ -52,13 +61,35 @@ No documento App.tsx de faz uma chamada para o componente Header
 # Mod 35 aula 3 - Cria o Banner -
 
 O Banner deste projeto é uma imagem, dentro dela de varios elementos.
+
 Esta imagem será tratada com background-image
 
 O Banner é um componente e os componentes na aplicação são colocados
 na pasta src/components/. No caso do Banner; src/components/Banner/index.tsx
 
 Também será criado um documento de estilo CSS usando o STYLED COMPONENT para
-o componente Header, src/components/Banner/styles.ts
+o componente Banner, src/components/Banner/styles.ts
 
 No documento App.tsx de faz uma chamada para o componente Banner.
+
+
+# Mod 36 alua 4 - Componentize - Parte I -
+
+Varios elementeos irão se repetir em varios componentes como tags e botões.
+Sendo assim iremos componentizar este componentes.
+
+A Tag que é um elemento que é usado em outros componentes da aplicação.
+A Tag será criada em src/components/Tag/index.tsx
+
+Também será criado um documento de estilo CSS usando o STYLED COMPONENT para
+o componente Tag, src/components/Tag/styles.ts
+
+
+O Botão também será um elemento que será usado em outros componentes na aplicação.
+O elemento Button será usado na pasta src/components/Button/index.tsx.
+
+Também será criado um documento de estilo CSS usando o STYLED COMPONENT para
+o componente Tag, src/components/Button/styles.ts
+
+
 

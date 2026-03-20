@@ -1,6 +1,4 @@
-// Componentes
-import Header from './components/Header'
-import Banner from './components/Banner'
+import styled from 'styled-components'
 
 /*
   O React Router Dom é uma biblioteca usada em aplicações React
@@ -33,28 +31,26 @@ import Banner from './components/Banner'
   múltiplas "páginas" e rotas personalizadas, trazendo mais organização e
   fluidez para o seu projeto.
 */
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { Link } from 'react-router-dom'
+import { cores } from '../../styles'
 
-// Cria os link ao clicar no botão usando o React Router Dom
-const rotas = createBrowserRouter([
-  {
-    path: '/',
-    element: <Banner />
-  }
-])
+export const ButtonContainer = styled.button`
+  border: 2px solid ${cores.branca};
+  color: ${cores.branca};
+  background-color: transparent;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 8px 16px;
+  border-radius: 8px;
+`
 
-import { GlobalCss } from './styles'
-
-function App() {
-  return (
-    <>
-      <GlobalCss />
-      <div className="container">
-        <Header />
-      </div>
-      <RouterProvider router={rotas} />
-    </>
-  )
-}
-
-export default App
+export const ButtonLink = styled(Link)`
+  border: 2px solid ${cores.branca};
+  color: ${cores.branca};
+  background-color: transparent;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 8px 16px;
+  text-decoration: none;
+  border-radius: 8px;
+`
