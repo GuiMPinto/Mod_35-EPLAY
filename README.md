@@ -84,7 +84,6 @@ A Tag será criada em src/components/Tag/index.tsx
 Também será criado um documento de estilo CSS usando o STYLED COMPONENT para
 o componente Tag, src/components/Tag/styles.ts
 
-
 O Botão também será um elemento que será usado em outros componentes na aplicação.
 O elemento Button será usado na pasta src/components/Button/index.tsx.
 
@@ -92,4 +91,17 @@ Também será criado um documento de estilo CSS usando o STYLED COMPONENT para
 o componente Tag, src/components/Button/styles.ts
 
 
+# Mod 36 alua 5 - Componentize - Parte II -
+
+Será criado agora o Card de Produto que também como as TAGS e BOTÕES serão
+usados em demais componentes.
+
+Será criada o componente Produto em src/components/Product/index.tsx também um
+documento de estilo CSS usando o STYLED COMPONENT src/components/Product/styles.ts
+
+Como nesta aplicação tem o componete, Lista de Produtos que é um conjunto de
+componentes Product agrupados em uma linha com 4 elementos.
+
+Sendo assim seguindo o padrão é criado os documentos
+src/components/ProductList/index.tsx e o src/components/ProductList/styles.ts
 

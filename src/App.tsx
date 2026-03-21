@@ -1,6 +1,9 @@
+import { GlobalCss } from './styles'
+
 // Componentes
 import Header from './components/Header'
 import Banner from './components/Banner'
+import ProductsList from './components/ProductList'
 
 /*
   O React Router Dom é uma biblioteca usada em aplicações React
@@ -39,11 +42,14 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 const rotas = createBrowserRouter([
   {
     path: '/',
-    element: <Banner />
+    element: (
+      <>
+        <Banner />
+        <ProductsList title="Promoções" background="gray" />
+      </>
+    )
   }
 ])
-
-import { GlobalCss } from './styles'
 
 function App() {
   return (
