@@ -105,3 +105,8 @@ componentes Product agrupados em uma linha com 4 elementos.
 Sendo assim seguindo o padrão é criado os documentos
 src/components/ProductList/index.tsx e o src/components/ProductList/styles.ts
 
+
+# Mod 36 alua 6 - Componentize - Parte III -
+
+O componente Produto receberá uma string para cada campo de seus dados.
+Dessa forma a aplicação se torna mais dinâmica
