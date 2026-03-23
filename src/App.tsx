@@ -2,9 +2,8 @@ import { GlobalCss } from './styles'
 
 // Componentes
 import Header from './components/Header'
-import Banner from './components/Banner'
-import ProductsList from './components/ProductList'
 
+import Rotas from './routes'
 /*
   O React Router Dom é uma biblioteca usada em aplicações React
   para gerenciar a navegação entre diferentes páginas ou componentes,
@@ -36,30 +35,18 @@ import ProductsList from './components/ProductList'
   múltiplas "páginas" e rotas personalizadas, trazendo mais organização e
   fluidez para o seu projeto.
 */
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-
-// Cria os link ao clicar no botão usando o React Router Dom
-const rotas = createBrowserRouter([
-  {
-    path: '/',
-    element: (
-      <>
-        <Banner />
-        <ProductsList title="Promoções" background="gray" />
-        <ProductsList title="Em Breve" background="black" />
-      </>
-    )
-  }
-])
+import { BrowserRouter } from 'react-router-dom'
 
 function App() {
   return (
     <>
-      <GlobalCss />
-      <div className="container">
-        <Header />
-      </div>
-      <RouterProvider router={rotas} />
+      <BrowserRouter>
+        <GlobalCss />
+        <div className="container">
+          <Header />
+        </div>
+        <Rotas />
+      </BrowserRouter>
     </>
   )
 }

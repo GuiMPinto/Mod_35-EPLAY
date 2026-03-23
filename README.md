@@ -109,4 +109,38 @@ src/components/ProductList/index.tsx e o src/components/ProductList/styles.ts
 # Mod 36 alua 6 - Componentize - Parte III -
 
 O componente Produto receberá uma string para cada campo de seus dados.
-Dessa forma a aplicação se torna mais dinâmica
+Dessa forma a aplicação se torna mais dinâmica.
+
+
+# Mod 36 alua 7 - Construa as páginas -
+
+Criaremos páginas. Clicando em botões irá ocorrer a mudança de página.
+As mudanças ocorreram no documento App.tsx .
+
+Será criado uma pasta uma pasta 'pages', onde as páginas da aplicação
+estarão.
+
+
+Página - HOME
+
+A primeira página da aplicação será a página HOME. Então é criada o seu
+correspondente componente; src/pages/Home/index.tsx. Será transferido
+para este documento todo o conteúdo renderizado (o conteúdo dentro de return)
+na aplicação até agora.
+
+As chamada do conteúdo da página HOME e as demais são chamadas no documento
+src/routes.tsx e este documento será chamada pelo documento src/routes.tsx
+
+Será criada um documento src/models/games.ts , onde o componente irá ler
+os dados de suas variáveis em vez se serem preenchidos no próprio componente.
+Assim permitindo que este dados sejam preenchidos de forma dinâmica ao
+manipular o documento games.ts.
+
+
+Página - CATEGORIES
+
+Sera criada também a página de Categorias que é uma listagem de produtos
+separada por categorias.
+
+A página CATEGORIES é criada src/pages/Categories/index.tsx
+
