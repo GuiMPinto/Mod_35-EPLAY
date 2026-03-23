@@ -1,9 +1,3 @@
-import { GlobalCss } from './styles'
-
-// Componentes
-import Header from './components/Header'
-
-import Rotas from './routes'
 /*
   O React Router Dom é uma biblioteca usada em aplicações React
   para gerenciar a navegação entre diferentes páginas ou componentes,
@@ -37,6 +31,14 @@ import Rotas from './routes'
 */
 import { BrowserRouter } from 'react-router-dom'
 
+import { GlobalCss } from './styles'
+
+// Componentes
+import Header from './components/Header'
+import Footer from './components/Rodape'
+
+import Rotas from './routes'
+
 function App() {
   return (
     <>
@@ -46,6 +48,7 @@ function App() {
           <Header />
         </div>
         <Rotas />
+        <Footer />
       </BrowserRouter>
     </>
   )

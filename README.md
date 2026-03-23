@@ -144,3 +144,12 @@ separada por categorias.
 
 A página CATEGORIES é criada src/pages/Categories/index.tsx
 
+
+# Mod 36 alua 8 - Construa o Rodapé -
+
+O Rodapé e o Header são os dois componentes que estarão em toda a aplicação
+
+Criaremos para o Rodapé o seguinte documento src/components/Rodape/index.tsx
+e também o seu STYLE COMPONENT, src/components/Rodape/styles.ts
+
+O Componente Rodapé foi inserido em src/App.tsx
