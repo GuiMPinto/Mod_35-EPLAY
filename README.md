@@ -161,7 +161,13 @@ Vamos criar mais uma pagina o que significa um componente dentro
 de pages que será adiconado dentro do documento src/routes.tsx
 
 
-# Mod 37 alua 1 - Componentize - Parte II -
+# Mod 37 alua 2 - Componentize - Parte II -
 
 É feito uma a página do produto do jogo Hogwarts. Foi usado o
 mesmo esquema de fundo preto e card cinza e vice-versa.
+
+
+# Mod 37 alua 3 - Crie a galeria - Parte I -
+
+Foi construida dentro da página do produto do jogo Hogwarts.
+A última seção antes do rodapé. A seção de galeria.
