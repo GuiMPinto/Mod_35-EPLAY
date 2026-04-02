@@ -153,3 +153,15 @@ Criaremos para o Rodapé o seguinte documento src/components/Rodape/index.tsx
 e também o seu STYLE COMPONENT, src/components/Rodape/styles.ts
 
 O Componente Rodapé foi inserido em src/App.tsx
+
+
+# Mod 37 alua 1 - Crie a página de detalhes -
+
+Vamos criar mais uma pagina o que significa um componente dentro
+de pages que será adiconado dentro do documento src/routes.tsx
+
+
+# Mod 37 alua 1 - Componentize - Parte II -
+
+É feito uma a página do produto do jogo Hogwarts. Foi usado o
+mesmo esquema de fundo preto e card cinza e vice-versa.
