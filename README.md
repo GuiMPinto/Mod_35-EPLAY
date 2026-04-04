@@ -169,5 +169,16 @@ mesmo esquema de fundo preto e card cinza e vice-versa.
 
 # Mod 37 alua 3 - Crie a galeria - Parte I -
 
+É criado a disposição para do itens que compõe o componente Galeria
+que esta dentro do componente ProductPainel.
+
+
+# Mod 37 alua 4 - Crie a galeria - Parte II -
+
 Foi construida dentro da página do produto do jogo Hogwarts.
 A última seção antes do rodapé. A seção de galeria.
+
+Ajustes foram feitos para se adequar as imagens aos quadros de
+cada produto o zoom para a imagem e o play para o vídeo.
+
+Um pop-up é criado

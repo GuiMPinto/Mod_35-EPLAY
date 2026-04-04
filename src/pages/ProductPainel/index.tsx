@@ -4,8 +4,11 @@ import { useParams } from 'react-router-dom'
 import Hero from '../../components/Hero'
 import Section from '../../components/Section'
 
-//imagens
+// imagens
 import aluna from '../../assets/images/menina.png'
+import fechar from '../../assets/images/fechar.png'
+
+// Componentes
 import Galeria from '../../components/Galeria'
 
 // Cada id e designado para um item
@@ -40,7 +43,7 @@ const ProductPainel = () => {
           jogo.
         </p>
       </Section>
-      <Galeria />
+      <Galeria defaultCover={aluna} nomeJogo="Rogwarts Legacy" />
     </>
   )
 }
