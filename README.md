@@ -182,3 +182,12 @@ Ajustes foram feitos para se adequar as imagens aos quadros de
 cada produto o zoom para a imagem e o play para o vídeo.
 
 Um pop-up é criado
+
+
+# Mod 37 alua 5 - Crie a galeria - Parte III -
+
+Nesta parte vai ser feita modificações do Pop-Up para que assuma
+o comportamento adequado para um pop-up.
+
+O Pop-Up pode ser um video ou imagem clicando no botão de fechar
+ou fora do campo o pop-up fecha.

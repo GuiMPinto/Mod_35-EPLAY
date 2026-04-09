@@ -1,3 +1,6 @@
+//REACT
+import { useState } from 'react'
+
 //componentes
 import Section from '../Section'
 
@@ -11,15 +14,19 @@ import fechar from '../../assets/images/fechar.png'
 //CSS
 import { Item, Itens, Action, Modal, ModalContent } from './styles'
 
-type ItemGaleria = {
+interface ItemGaleria {
   tipo: 'imagem' | 'video'
   url: string
+}
+
+interface ModalState extends ItemGaleria {
+  isVisible: boolean
 }
 
 const mock: ItemGaleria[] = [
   {
     tipo: 'imagem',
-    url: aluna
+    url: spiderman
   },
   {
     tipo: 'imagem',
@@ -31,32 +38,52 @@ const mock: ItemGaleria[] = [
   }
 ]
 
-/*
-  Código implementado porque não é possivél o link diretamente do YouTube
-  // -------------- Código --------------- Inicio//
-*/
 type Props = {
   defaultCover: string
   nomeJogo: string
 }
 
 const Galeria = ({ defaultCover, nomeJogo }: Props) => {
+  //Use State
+  const [modal, setModal] = useState<ModalState>({
+    isVisible: false,
+    tipo: 'imagem',
+    url: ''
+  })
+
   const getMediaCover = (item: ItemGaleria) => {
     if (item.tipo === 'imagem') return item.url
     return defaultCover
   }
-  // -------------- Código --------------- Final//
 
   const getMediaIcon = (item: ItemGaleria) => {
     if (item.tipo === 'imagem') return zoom
     return play
   }
+
+  const closeModal = () => {
+    setModal({
+      isVisible: false,
+      tipo: 'imagem',
+      url: ''
+    })
+  }
+
   return (
     <>
       <Section background="black" title="Galeria">
         <Itens>
           {mock.map((media, index) => (
-            <Item key={media.url}>
+            <Item
+              key={media.url}
+              onClick={() => {
+                setModal({
+                  isVisible: true,
+                  tipo: media.tipo,
+                  url: media.url
+                })
+              }}
+            >
               <img
                 src={getMediaCover(media)}
                 alt={`Midia ${index + 1} do ${nomeJogo}`}
@@ -68,15 +95,41 @@ const Galeria = ({ defaultCover, nomeJogo }: Props) => {
           ))}
         </Itens>
       </Section>
-      <Modal>
+      {/*
+        Se quiser realmente controlar a renderização do conteúdo usando a
+        condição isVisible como true, deve-se condicionar o JSX, assim:
+
+        {modal.isVisible && (
+          <Modal>
+            Conteúdo
+          </Modal>
+        )}
+      */}
+      <Modal className={modal.isVisible ? 'visible' : ''}>
         <ModalContent className="container">
           <header>
             <h2>{nomeJogo}</h2>
-            <img src={fechar} alt="fechar Pop-Up"></img>
+            <img
+              src={fechar}
+              alt="fechar Pop-Up"
+              onClick={() => {
+                closeModal()
+              }}
+            />
           </header>
-          <img src={spiderman}></img>
+          {modal.tipo === 'imagem' ? (
+            <img src={modal.url} />
+          ) : (
+            // Código que permite ler um link de um video do Youtube
+            <iframe frameBorder={0} src={modal.url} />
+          )}
         </ModalContent>
-        <div className="overlay"></div>
+        <div
+          className="overlay"
+          onClick={() => {
+            closeModal()
+          }}
+        ></div>
       </Modal>
     </>
   )
