@@ -3,6 +3,7 @@ import { useState } from 'react'
 
 //componentes
 import Section from '../Section'
+import { GalleryItem } from '../../pages/Home'
 
 //imagens
 import aluna from '../../assets/images/menina.png'

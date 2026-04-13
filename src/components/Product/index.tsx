@@ -19,12 +19,20 @@ const Product = ({
   description,
   infos,
   image
-}: Props) => (
-  <Card>
-    <img src={image} alt={title} />
-    <Infos>
-      {infos.map((info) => (
-        /*
+}: Props) => {
+  // Função que limita o texto da descrição
+  const getDescricao = (descricao: string) => {
+    if (descricao.length > 95) {
+      return descricao.slice(0, 92) + '...'
+    }
+    return descricao
+  }
+  return (
+    <Card>
+      <img src={image} alt={title} />
+      <Infos>
+        {infos.map((info) => (
+          /*
           O atributo key={info} é muito importante no React quando você
           está renderizando listas de elementos, por exemplo usando .map().
           A key serve para ajudar o React a identificar quais itens mudaram,
@@ -35,14 +43,15 @@ const Product = ({
           sobre um array (neste caso, infos é um array de strings), e precisamos
           renderizar múltiplos componentes a partir dele.
         */
-        <Tag key={info}>{info}</Tag>
-      ))}
-    </Infos>
-    <Titulo>{title}</Titulo>
-    <Tag>{category}</Tag>
-    <Tag>{system}</Tag>
-    <Descricao>{description}</Descricao>
-  </Card>
-)
+          <Tag key={info}>{info}</Tag>
+        ))}
+      </Infos>
+      <Titulo>{title}</Titulo>
+      <Tag>{category}</Tag>
+      <Tag>{system}</Tag>
+      <Descricao>{getDescricao(description)}</Descricao>
+    </Card>
+  )
+}
 
 export default Product

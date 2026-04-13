@@ -1,108 +1,52 @@
+// React
+import { useState, useEffect } from 'react'
+
+// Componentes
 import ProductsList from '../../components/ProductList'
-import Game from '../../models/games'
+import { Game } from '../Home'
 
-// Imagens dos produtos
-import resident from '../../assets/images/resident.png'
-import diablo from '../../assets/images/diablo.png'
-import zelda from '../../assets/images/zelda.png'
-import star_wars from '../../assets/images/star_wars.png'
+const Categories = () => {
+  const [gamesAcao, setGamesAcao] = useState<Game[]>([])
+  const [gamesEsportes, setGamesEsportes] = useState<Game[]>([])
+  const [gamesSimulacao, setGamesSimulacao] = useState<Game[]>([])
+  const [gamesLuta, setGamesLuta] = useState<Game[]>([])
+  const [gamesRPG, setGamesRPG] = useState<Game[]>([])
 
-// Promoções
+  useEffect(() => {
+    fetch('https://api-ebac.vercel.app/api/eplay/acao')
+      .then((res) => res.json())
+      .then((res) => setGamesAcao(res))
 
-const promocoes: Game[] = [
-  {
-    id: 1,
-    category: 'Ação',
-    description:
-      'Resident Evil 4, conhecido no Japão como Biohazard 4, é um jogo eletrônico de survival horror de tiro em terceira pessoa desenvolvido e publicado pela Capcom.',
-    image: resident,
-    title: 'Resident Evil 4',
-    infos: ['10%', 'R$ 250,00'],
-    system: 'Windows'
-  },
-  {
-    id: 2,
-    category: 'Ação',
-    description:
-      'Resident Evil 4, conhecido no Japão como Biohazard 4, é um jogo eletrônico de survival horror de tiro em terceira pessoa desenvolvido e publicado pela Capcom.',
-    image: resident,
-    title: 'Resident Evil 4',
-    infos: ['5%', 'R$ 290,00'],
-    system: 'PS5'
-  },
-  {
-    id: 3,
-    category: 'Ação',
-    description:
-      'Resident Evil 4, conhecido no Japão como Biohazard 4, é um jogo eletrônico de survival horror de tiro em terceira pessoa desenvolvido e publicado pela Capcom.',
-    image: resident,
-    title: 'Resident Evil 4',
-    infos: ['10%', 'R$ 220,00'],
-    system: 'PS4'
-  },
-  {
-    id: 4,
-    category: 'Ação',
-    description:
-      'Resident Evil 4, conhecido no Japão como Biohazard 4, é um jogo eletrônico de survival horror de tiro em terceira pessoa desenvolvido e publicado pela Capcom.',
-    image: resident,
-    title: 'Resident Evil 4',
-    infos: ['5%', 'R$ 290,00'],
-    system: 'XBox'
-  }
-]
+    fetch('https://api-ebac.vercel.app/api/eplay/esportes')
+      .then((res) => res.json())
+      .then((res) => setGamesEsportes(res))
 
-// Em Breve
+    fetch('https://api-ebac.vercel.app/api/eplay/simulacao')
+      .then((res) => res.json())
+      .then((res) => setGamesSimulacao(res))
 
-const emBreve: Game[] = [
-  {
-    id: 5,
-    category: 'RPG',
-    description:
-      'Diablo IV é um jogo eletrônico de RPG de ação desenvolvido pela Blizzard Entertainment.',
-    title: 'Diablo IV',
-    system: 'Windows',
-    infos: ['17/05'],
-    image: diablo
-  },
-  {
-    id: 6,
-    category: 'RPG',
-    description:
-      'Zelda é um jogo eletrônico de RPG de ação desenvolvido pela Blizzard Entertainment.',
-    title: 'Zelda',
-    system: 'Windows',
-    infos: ['11/05'],
-    image: zelda
-  },
-  {
-    id: 7,
-    category: 'RPG',
-    description:
-      'Star Wars é um jogo eletrônico de RPG de ação desenvolvido pela Blizzard Entertainment.',
-    title: 'Star Wars',
-    system: 'Windows',
-    infos: ['24/05'],
-    image: star_wars
-  },
-  {
-    id: 8,
-    category: 'RPG',
-    description:
-      'Resident Evil 4 é um jogo eletrônico de RPG de ação desenvolvido pela Blizzard Entertainment.',
-    title: 'Resident Evil 4',
-    system: 'Nintendo Switch',
-    infos: ['17/05'],
-    image: resident
-  }
-]
-const Categories = () => (
-  <>
-    <ProductsList title="RPG" background="gray" games={promocoes} />
-    <ProductsList title="Ação" background="black" games={emBreve} />
-    <ProductsList title="Aventura" background="gray" games={promocoes} />
-    <ProductsList title="FPS" background="black" games={emBreve} />
-  </>
-)
+    fetch('https://api-ebac.vercel.app/api/eplay/luta')
+      .then((res) => res.json())
+      .then((res) => setGamesLuta(res))
+
+    fetch('https://api-ebac.vercel.app/api/eplay/rpg')
+      .then((res) => res.json())
+      .then((res) => setGamesRPG(res))
+  }, [])
+
+  return (
+    <>
+      <ProductsList title="Ação" background="black" games={gamesAcao} />
+      <ProductsList title="Esportes" background="gray" games={gamesEsportes} />
+      <ProductsList title="Luta" background="black" games={gamesLuta} />
+      <ProductsList title="RPG" background="gray" games={gamesRPG} />
+      <ProductsList
+        title="Simulação"
+        background="black"
+        games={gamesSimulacao}
+      />
+    </>
+  )
+}
 
 export default Categories

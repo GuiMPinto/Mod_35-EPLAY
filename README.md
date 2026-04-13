@@ -155,25 +155,25 @@ e também o seu STYLE COMPONENT, src/components/Rodape/styles.ts
 O Componente Rodapé foi inserido em src/App.tsx
 
 
-# Mod 37 alua 1 - Crie a página de detalhes -
+# Mod 36 alua 1 - Crie a página de detalhes -
 
 Vamos criar mais uma pagina o que significa um componente dentro
 de pages que será adiconado dentro do documento src/routes.tsx
 
 
-# Mod 37 alua 2 - Componentize - Parte II -
+# Mod 36 alua 2 - Componentize - Parte II -
 
 É feito uma a página do produto do jogo Hogwarts. Foi usado o
 mesmo esquema de fundo preto e card cinza e vice-versa.
 
 
-# Mod 37 alua 3 - Crie a galeria - Parte I -
+# Mod 36 alua 3 - Crie a galeria - Parte I -
 
 É criado a disposição para do itens que compõe o componente Galeria
 que esta dentro do componente ProductPainel.
 
 
-# Mod 37 alua 4 - Crie a galeria - Parte II -
+# Mod 36 alua 4 - Crie a galeria - Parte II -
 
 Foi construida dentro da página do produto do jogo Hogwarts.
 A última seção antes do rodapé. A seção de galeria.
@@ -184,10 +184,16 @@ cada produto o zoom para a imagem e o play para o vídeo.
 Um pop-up é criado
 
 
-# Mod 37 alua 5 - Crie a galeria - Parte III -
+# Mod 36 alua 5 - Crie a galeria - Parte III -
 
 Nesta parte vai ser feita modificações do Pop-Up para que assuma
 o comportamento adequado para um pop-up.
 
 O Pop-Up pode ser um video ou imagem clicando no botão de fechar
 ou fora do campo o pop-up fecha.
+
+
+# Mod 36 alua 6 - Integre com a API - Parte I -
+
+Usaremos uma API para substituir o conteúdo dentro dos componente
+
