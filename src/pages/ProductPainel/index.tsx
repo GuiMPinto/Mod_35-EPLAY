@@ -1,49 +1,57 @@
-// um paramento antes da URL final um dado cada
+// useParams : um paramento antes da URL final um dado cada
 // paramentro determina um produto final
 import { useParams } from 'react-router-dom'
+
+//React
+import { useState, useEffect } from 'react'
+import { Game } from '../Home'
+
+//Componentes
 import Hero from '../../components/Hero'
 import Section from '../../components/Section'
+import Galeria from '../../components/Galeria'
 
 // imagens
 import aluna from '../../assets/images/menina.png'
 import fechar from '../../assets/images/fechar.png'
 
-// Componentes
-import Galeria from '../../components/Galeria'
-
 // Cada id e designado para um item
 const ProductPainel = () => {
   const { id } = useParams()
+
+  const [game, setGame] = useState<Game>()
+
+  //useEffect para chamar uma API
+  useEffect(() => {
+    fetch(`https://api-ebac.vercel.app/api/eplay/jogos/${id}`)
+      .then((res) => res.json())
+      .then((res) => setGame(res))
+  }, [id])
+
+  if (!game) {
+    return <h3>Carregando ... </h3>
+  }
+
   return (
     <>
-      <Hero />
+      <Hero game={game} />
       <Section background="black" title="Sobre o Jogo">
-        <p>
-          Hogwarts Legacy é um RPG de ação imersivo e de mundo aberto ambientado
-          no mundo introduzido pela primeira vez nos livros do Harry Potter.
-          Embarque em uma jornada por locais novos e familiares enquanto explora
-          e descubra animais fantásticos, personalize seu personagem e crie
-          poções, domine o lançamento de feitiços, aprimore talentos e torne-se
-          o bruxo que deseja ser.Experimente Hogwarts da década de 1800. Seu
-          personagem é um estudante com chave de um antigo segredo que ameaça
-          destruir o mundo bruxo. Faça aliados, lute contra os bruxos das trevas
-          e decida o destino do mundo bruxo. Seu legado é o que você faz dele.
-          Viva o Inesperado.
-        </p>
+        <p>{game.description}</p>
       </Section>
       <Section background="gray" title="Mais detalhes">
         <p>
-          <b>Plataforma:</b> PlayStation 5 <br />
-          <b>Desenvolvedor:</b> Avalanche Software <br />
-          <b>Editora:</b> Portkey Games, subsidiária da Warner Bros. Interactive
-          Entertainment <br />
-          <b>Idiomas:</b> O jogo oferece suporte a diversos idiomas, incluindo
-          inglês, espanhol, francês, alemão, italiano, português, entre outros.
-          As opções de áudio e legendas podem ser ajustadas nas configurações do
-          jogo.
+          <b>Plataforma:</b> {game.details.system} <br />
+          <b>Desenvolvedor:</b> {game.details.developer} <br />
+          <b>Editora:</b> {game.details.publisher} <br />
+          <b>Idiomas:</b> O jogo oferece suporte a diversos idiomas, incluindo{' '}
+          {game.details.languages.join(', ')} <br />
         </p>
       </Section>
-      <Galeria defaultCover={aluna} nomeJogo="Rogwarts Legacy" />
+      <Galeria
+        defaultCover={aluna}
+        nomeJogo="Rogwarts Legacy"
+        items={game.media.gallery}
+      />
     </>
   )
 }

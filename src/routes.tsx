@@ -10,7 +10,7 @@ const Rotas = () => (
   <Routes>
     <Route path="/" element={<Home />} />
     <Route path="/categories" element={<Categories />} />
-    <Route path="/product" element={<ProductPainel />} />
+    <Route path="/product/:id" element={<ProductPainel />} />
   </Routes>
 )
 

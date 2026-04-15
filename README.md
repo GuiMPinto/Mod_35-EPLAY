@@ -73,7 +73,7 @@ o componente Banner, src/components/Banner/styles.ts
 No documento App.tsx de faz uma chamada para o componente Banner.
 
 
-# Mod 36 alua 4 - Componentize - Parte I -
+# Mod 35 alua 4 - Componentize - Parte I -
 
 Varios elementeos irão se repetir em varios componentes como tags e botões.
 Sendo assim iremos componentizar este componentes.
@@ -91,7 +91,7 @@ Também será criado um documento de estilo CSS usando o STYLED COMPONENT para
 o componente Tag, src/components/Button/styles.ts
 
 
-# Mod 36 alua 5 - Componentize - Parte II -
+# Mod 35 alua 5 - Componentize - Parte II -
 
 Será criado agora o Card de Produto que também como as TAGS e BOTÕES serão
 usados em demais componentes.
@@ -106,13 +106,13 @@ Sendo assim seguindo o padrão é criado os documentos
 src/components/ProductList/index.tsx e o src/components/ProductList/styles.ts
 
 
-# Mod 36 alua 6 - Componentize - Parte III -
+# Mod 35 alua 6 - Componentize - Parte III -
 
 O componente Produto receberá uma string para cada campo de seus dados.
 Dessa forma a aplicação se torna mais dinâmica.
 
 
-# Mod 36 alua 7 - Construa as páginas -
+# Mod 35 alua 7 - Construa as páginas -
 
 Criaremos páginas. Clicando em botões irá ocorrer a mudança de página.
 As mudanças ocorreram no documento App.tsx .
@@ -145,7 +145,7 @@ separada por categorias.
 A página CATEGORIES é criada src/pages/Categories/index.tsx
 
 
-# Mod 36 alua 8 - Construa o Rodapé -
+# Mod 35 alua 8 - Construa o Rodapé -
 
 O Rodapé e o Header são os dois componentes que estarão em toda a aplicação
 
@@ -161,19 +161,21 @@ Vamos criar mais uma pagina o que significa um componente dentro
 de pages que será adiconado dentro do documento src/routes.tsx
 
 
-# Mod 36 alua 2 - Componentize - Parte II -
+# Mod 36 alua 2 - Componentize - Parte I -
+
+# Mod 36 alua 3 - Componentize - Parte II -
 
 É feito uma a página do produto do jogo Hogwarts. Foi usado o
 mesmo esquema de fundo preto e card cinza e vice-versa.
 
 
-# Mod 36 alua 3 - Crie a galeria - Parte I -
+# Mod 36 alua 4 - Crie a galeria - Parte I -
 
 É criado a disposição para do itens que compõe o componente Galeria
 que esta dentro do componente ProductPainel.
 
 
-# Mod 36 alua 4 - Crie a galeria - Parte II -
+# Mod 36 alua 5 - Crie a galeria - Parte II -
 
 Foi construida dentro da página do produto do jogo Hogwarts.
 A última seção antes do rodapé. A seção de galeria.
@@ -184,7 +186,7 @@ cada produto o zoom para a imagem e o play para o vídeo.
 Um pop-up é criado
 
 
-# Mod 36 alua 5 - Crie a galeria - Parte III -
+# Mod 36 alua 6 - Crie a galeria - Parte III -
 
 Nesta parte vai ser feita modificações do Pop-Up para que assuma
 o comportamento adequado para um pop-up.
@@ -193,7 +195,12 @@ O Pop-Up pode ser um video ou imagem clicando no botão de fechar
 ou fora do campo o pop-up fecha.
 
 
-# Mod 36 alua 6 - Integre com a API - Parte I -
+# Mod 36 alua 7 - Integre com a API - Parte I -
 
 Usaremos uma API para substituir o conteúdo dentro dos componente
+
+
+# Mod 36 alua 8 - Integre com a API - Parte II -
+
+Apredemos a usar a uma estrutura condional no React e integrar Api(s)
 

@@ -15,26 +15,21 @@ import fechar from '../../assets/images/fechar.png'
 //CSS
 import { Item, Itens, Action, Modal, ModalContent } from './styles'
 
-interface ItemGaleria {
-  tipo: 'imagem' | 'video'
-  url: string
-}
-
-interface ModalState extends ItemGaleria {
+interface ModalState extends GalleryItem {
   isVisible: boolean
 }
 
-const mock: ItemGaleria[] = [
+const mock: GalleryItem[] = [
   {
-    tipo: 'imagem',
+    type: 'image',
     url: spiderman
   },
   {
-    tipo: 'imagem',
+    type: 'image',
     url: aluna
   },
   {
-    tipo: 'video',
+    type: 'video',
     url: 'https://www.youtube.com/embed/gl8w-cMqNfI?si=L1Oss4Mp-9zmAkMj'
   }
 ]
@@ -42,30 +37,31 @@ const mock: ItemGaleria[] = [
 type Props = {
   defaultCover: string
   nomeJogo: string
+  items: GalleryItem[]
 }
 
-const Galeria = ({ defaultCover, nomeJogo }: Props) => {
+const Galeria = ({ defaultCover, nomeJogo, items }: Props) => {
   //Use State
   const [modal, setModal] = useState<ModalState>({
     isVisible: false,
-    tipo: 'imagem',
+    type: 'image',
     url: ''
   })
 
-  const getMediaCover = (item: ItemGaleria) => {
-    if (item.tipo === 'imagem') return item.url
+  const getMediaCover = (item: GalleryItem) => {
+    if (item.type === 'image') return item.url
     return defaultCover
   }
 
-  const getMediaIcon = (item: ItemGaleria) => {
-    if (item.tipo === 'imagem') return zoom
+  const getMediaIcon = (item: GalleryItem) => {
+    if (item.type === 'image') return zoom
     return play
   }
 
   const closeModal = () => {
     setModal({
       isVisible: false,
-      tipo: 'imagem',
+      type: 'image',
       url: ''
     })
   }
@@ -74,13 +70,13 @@ const Galeria = ({ defaultCover, nomeJogo }: Props) => {
     <>
       <Section background="black" title="Galeria">
         <Itens>
-          {mock.map((media, index) => (
+          {items.map((media, index) => (
             <Item
               key={media.url}
               onClick={() => {
                 setModal({
                   isVisible: true,
-                  tipo: media.tipo,
+                  type: media.type,
                   url: media.url
                 })
               }}
@@ -118,7 +114,7 @@ const Galeria = ({ defaultCover, nomeJogo }: Props) => {
               }}
             />
           </header>
-          {modal.tipo === 'imagem' ? (
+          {modal.type === 'image' ? (
             <img src={modal.url} />
           ) : (
             // Código que permite ler um link de um video do Youtube

@@ -10,6 +10,7 @@ type Props = {
   description: string
   infos: string[]
   image: string
+  id: number
 }
 
 const Product = ({
@@ -18,7 +19,8 @@ const Product = ({
   system,
   description,
   infos,
-  image
+  image,
+  id
 }: Props) => {
   // Função que limita o texto da descrição
   const getDescricao = (descricao: string) => {
@@ -28,7 +30,7 @@ const Product = ({
     return descricao
   }
   return (
-    <Card>
+    <Card to={`/product/${id}`}>
       <img src={image} alt={title} />
       <Infos>
         {infos.map((info) => (

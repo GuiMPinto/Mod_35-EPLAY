@@ -35,7 +35,7 @@ export const Item = styled.li`
   }
 
   &:hover {
-    ${Action} {
+    > ${Action} {
       opacity: 1;
       transition: opacity 0.5s ease;
     }
@@ -81,6 +81,10 @@ export const ModalContent = styled.div`
       font-size: 18px;
       font-weight: bold;
     }
+  }
+
+  > img {
+    width: 100%;
   }
 
   img,
