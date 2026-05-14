@@ -1,31 +1,21 @@
 //CSS
 import { Imagem, Precos, Titulo } from './styles'
 
-//Imagens
-import bannerImg from '../../assets/images/banner-homem-aranha.png'
-
 //Componentes
 import Tag from '../Tag'
 import Button from '../Button'
-import { formataPreco } from '../ProductList'
-import { Game } from '../../pages/Home'
 
-//React
-import { useEffect, useState } from 'react'
+// formatador de preço
+import { formataPreco } from '../../utils/formatadorDePreco'
+
+//requisições da API
+import { useGetDestaqueJogoQuery } from '../../services/api'
 
 const Banner = () => {
-  const [game, setGame] = useState<Game>()
-
-  // Sempre que o Id mudar (ou seja, ao atualizar a
-  // página ou navegar), ele executa o código dentro dele.
-  useEffect(() => {
-    // fetch: Busca na API os dados do restaurante com base no Id.
-    fetch('https://api-ebac.vercel.app/api/eplay/destaque')
-      .then((res) => res.json())
-      //setGame: atualiza o estado local com a URL da nova imagem do banner
-      .then((res) => setGame(res))
-  }, []) // o id esta dentro de []. É acresentado toda vez
-  // a página é atualizada
+  // data é do tipo Game definido em api.ts
+  // getDestaqueJogo: builder.query<Game, void>
+  // isLoading é booleano
+  const { data: game, isLoading } = useGetDestaqueJogoQuery()
 
   // if evita  que a função formataPreco dentro do <span></span> de erro
   // quando o objeto game estiver indefinido (undefined).

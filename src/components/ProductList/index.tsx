@@ -2,6 +2,9 @@
 import Product from '../Product'
 import { Game } from '../../pages/Home'
 
+// formatador de preço
+import { formataPreco } from '../../utils/formatadorDePreco'
+
 //CSS
 import { Container, List } from './styles'
 
@@ -11,12 +14,6 @@ export type Props = {
   background: 'gray' | 'black'
 }
 
-export const formataPreco = (preco = 0) => {
-  return new Intl.NumberFormat('pt-BR', {
-    style: 'currency',
-    currency: 'BRL'
-  }).format(preco)
-}
 const ProductsList = ({ background, title, games }: Props) => {
   // Código para usar em Info ---- Inicio ----
   const getGameTags = (game: Game) => {

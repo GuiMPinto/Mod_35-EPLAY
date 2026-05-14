@@ -5,45 +5,59 @@ import bannerHogwarts from '../../assets/images/fundohogwarts.png'
 import { Game } from '../../pages/Home'
 import Button from '../Button'
 import Tag from '../Tag'
-import { formataPreco } from '../ProductList'
+
+// formatador de preço
+import { formataPreco } from '../../utils/formatadorDePreco'
 
 // CSS
 import { BannerProdcut, InfosBanner } from './styles'
+
+//React Redux
+import { useDispatch } from 'react-redux'
+import { add, open } from '../../store/reducers/cart'
 
 type Props = {
   game: Game
 }
 
-const Hero = ({ game }: Props) => (
-  <BannerProdcut style={{ backgroundImage: `url(${game.media.cover})` }}>
-    <div className="container">
-      <div>
-        <Tag>{game.details.category}</Tag>
-        <Tag>{game.details.system}</Tag>
+const Hero = ({ game }: Props) => {
+  const dispatch = useDispatch()
+  const addToCart = () => {
+    dispatch(add(game))
+    dispatch(open())
+  }
+  return (
+    <BannerProdcut style={{ backgroundImage: `url(${game.media.cover})` }}>
+      <div className="container">
+        <div>
+          <Tag>{game.details.category}</Tag>
+          <Tag>{game.details.system}</Tag>
+        </div>
+        <InfosBanner>
+          <h2>{game.name}</h2>
+          <p>
+            {/* &&: se for true entra o escopo dentro de ( ) */}
+            {game.prices.discount && (
+              <span>De {formataPreco(game.prices.old)}</span>
+            )}
+            {game.prices.discount && (
+              <>Por {formataPreco(game.prices.current)} </>
+            )}
+          </p>
+          {game.prices.discount && (
+            <Button
+              type="button"
+              title="Adicionar Hogwarts Legacy ao Carrinho"
+              variante="primario"
+              onClick={addToCart}
+            >
+              Adicionar ao Carrinho
+            </Button>
+          )}
+        </InfosBanner>
       </div>
-      <InfosBanner>
-        <h2>{game.name}</h2>
-        <p>
-          {/* &&: se for true entra o escopo dentro de ( ) */}
-          {game.prices.discount && (
-            <span>De {formataPreco(game.prices.old)}</span>
-          )}
-          {game.prices.discount && (
-            <>Por {formataPreco(game.prices.current)} </>
-          )}
-        </p>
-        {game.prices.discount && (
-          <Button
-            type="button"
-            title="Adicionar Hogwarts Legacy ao Carrinho"
-            variante="primario"
-          >
-            Adicionar ao Carrinho
-          </Button>
-        )}
-      </InfosBanner>
-    </div>
-  </BannerProdcut>
-)
+    </BannerProdcut>
+  )
+}
 
 export default Hero

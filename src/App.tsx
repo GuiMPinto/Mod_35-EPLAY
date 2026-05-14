@@ -31,17 +31,23 @@
 */
 import { BrowserRouter } from 'react-router-dom'
 
+// React toolkit - React Redux
+import { store } from './store'
+import { Provider } from 'react-redux'
+
+// CSS
 import { GlobalCss } from './styles'
 
 // Componentes
 import Header from './components/Header'
 import Footer from './components/Rodape'
+import Cart from './components/Cart'
 
 import Rotas from './routes'
 
 function App() {
   return (
-    <>
+    <Provider store={store}>
       <BrowserRouter>
         <GlobalCss />
         <div className="container">
@@ -49,8 +55,9 @@ function App() {
         </div>
         <Rotas />
         <Footer />
+        <Cart />
       </BrowserRouter>
-    </>
+    </Provider>
   )
 }
 

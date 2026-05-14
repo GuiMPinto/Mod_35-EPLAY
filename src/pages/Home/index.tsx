@@ -1,8 +1,11 @@
 import Banner from '../../components/Banner'
 import ProductsList from '../../components/ProductList'
 
-//React
-import { useEffect, useState } from 'react'
+//requisições da API
+import {
+  useGetPromocoesJogoQuery,
+  useGetEmBreveJogoQuery
+} from '../../services/api'
 
 export interface GalleryItem {
   type: 'image' | 'video'
@@ -35,29 +38,21 @@ export type Game = {
 }
 
 const Home = () => {
-  //UseState
-  const [promocoes, setPromocoes] = useState<Game[]>([])
-  const [emBreve, setEmBreve] = useState<Game[]>([])
+  //requisições
+  const { data: promocoes } = useGetPromocoesJogoQuery()
+  const { data: emBreve } = useGetEmBreveJogoQuery()
 
-  //useEffect para chamar uma API
-  useEffect(() => {
-    // Promoções
-    fetch('https://api-ebac.vercel.app/api/eplay/promocoes')
-      .then((res) => res.json())
-      .then((res) => setPromocoes(res))
+  if (promocoes && emBreve) {
+    return (
+      <>
+        <Banner />
+        <ProductsList title="Promoções" background="gray" games={promocoes} />
+        <ProductsList title="Em breve" background="black" games={emBreve} />
+      </>
+    )
+  }
 
-    // Em Breve
-    fetch('https://api-ebac.vercel.app/api/eplay/em-breve')
-      .then((res) => res.json())
-      .then((res) => setEmBreve(res))
-  }, [])
-  return (
-    <>
-      <Banner />
-      <ProductsList title="Promoções" background="gray" games={promocoes} />
-      <ProductsList title="Em breve" background="black" games={emBreve} />
-    </>
-  )
+  return <h4>Carregando...</h4>
 }
 
 export default Home
